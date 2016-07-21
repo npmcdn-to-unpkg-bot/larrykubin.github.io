@@ -1,8 +1,51 @@
 <html>
+
 <head>
+    <meta charset="utf-8">
     <title>larry kubin</title>
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Raleway:400,300,600">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.2/normalize.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="https://fb.me/react-15.1.0.js"></script>
+    <script src="https://fb.me/react-dom-15.1.0.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
+    <script src="https://npmcdn.com/react-router@2.4.0/umd/ReactRouter.min.js"></script>
 </head>
+
 <body>
-    yep. moving my homepage to github. time for a fresh start.
+
+<div id="container"></div>
+
+<script type="text/babel">
+var destination = document.querySelector("#container");
+
+var App = React.createClass({
+  render: function() {
+    return (
+      <div>
+        <h1>larry kubin</h1>
+        <ul className="header">
+          <li>portfolio</li>
+          <li>photos</li>
+          <li>concerts</li>
+        </ul>
+        <div className="content">
+ 
+        </div>
+      </div>
+    )
+  }
+});
+
+ReactDOM.render(
+  <div>
+    <App/>
+  </div>,
+  destination
+);
+</script>
 </body>
+
 </html>
