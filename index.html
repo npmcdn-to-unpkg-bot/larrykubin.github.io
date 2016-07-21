@@ -19,6 +19,12 @@
 <div id="container"></div>
 
 <script type="text/babel">
+var { Router,
+      Route,
+      IndexRoute,
+      IndexLink,
+      Link } = ReactRouter;
+
 var destination = document.querySelector("#container");
 
 var App = React.createClass({
@@ -27,22 +33,59 @@ var App = React.createClass({
       <div>
         <h1>larry kubin</h1>
         <ul className="header">
-          <li>portfolio</li>
-          <li>photos</li>
-          <li>concerts</li>
+          <li><IndexLink to="/" activeClassName="active">home</IndexLink></li>
+          <li><Link to="/portfolio" activeClassName="active">portfolio</Link></li>
+          <li><Link to="/photos" activeClassName="active">photos</Link></li>
         </ul>
         <div className="content">
- 
+          {this.props.children}
         </div>
       </div>
     )
   }
 });
 
+var Home = React.createClass({
+  render: function() {
+      return (
+        <div>
+          <h2>Home</h2>
+          <p>This is the home page.</p>
+        </div>
+      );
+    }
+});
+
+var Portfolio = React.createClass({
+  render: function() {
+      return (
+        <div>
+          <h2>Portfolio</h2>
+          <p>This is a portfolio.</p>
+        </div>
+      );
+    }
+});
+ 
+var Photos = React.createClass({
+  render: function() {
+      return (
+        <div>
+          <h2>Photos</h2>
+          <p>Here are some photos.</p>
+        </div>
+      );
+    }
+});
+
 ReactDOM.render(
-  <div>
-    <App/>
-  </div>,
+  <Router>
+    <Route path="/" component={App}>
+       <IndexRoute component={Home}/>
+      <Route path="portfolio" component={Portfolio} />
+      <Route path="photos" component={Photos} />
+    </Route>
+  </Router>,
   destination
 );
 </script>
